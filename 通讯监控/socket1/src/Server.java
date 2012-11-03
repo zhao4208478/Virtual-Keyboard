@@ -7,8 +7,8 @@ public class Server{
      static ServerSocket sSocket;
      public static void main ( String[] args ) {
     	 try {
-    		 sSocket = new ServerSocket( 8787 ) ;
-    		 System.out.println( "监控8787接口" ) ;
+    		 sSocket = new ServerSocket( 8877 ) ;
+    		 System.out.println( "监控8877接口" ) ;
     		 while( true ) {
     			 Socket socket = sSocket.accept() ;
     			 DataInputStream diStream = new DataInputStream( socket.getInputStream() ) ;
