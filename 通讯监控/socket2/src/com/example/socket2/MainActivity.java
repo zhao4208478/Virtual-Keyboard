@@ -1,46 +1,89 @@
 package com.example.socket2;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.net.UnknownHostException;
+
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.Socket;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View.OnClickListener;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.*;
+
 
 public class MainActivity extends Activity {
-
+    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = ( Button ) findViewById( R.id.button ) ;
-        button.setOnClickListener ( new OnClickListener() {			
-			public void onClick(View v) {
-				// TODO Auto-generated method stub
-				connectServer();
-			}
-		});
+       
+
+        findviews();
+        setonclick();
+
     }
-    public void connectServer () {
-    	String serverIp = "192.168.0.101" ;
-    	try {
-    	    Socket socket = new Socket( serverIp , 8877 ) ;
-    	    DataInputStream din = new DataInputStream( socket.getInputStream() ) ;
-    	    DataOutputStream dout = new DataOutputStream( socket.getOutputStream() ) ;
-    	    EditText et = ( EditText ) this.findViewById( R.id.et ) ;
-    	    String tempStr = et.getText().toString() ;
-    	    dout.writeUTF( tempStr ) ;
-    	    TextView tv = ( TextView ) this.findViewById( R.id.tv ) ;
-    	    tv.setText( din.readUTF() ) ;
-    	    din.close() ;
-    	    dout.close() ;
-    	    socket.close() ;
-    	} catch ( Exception e ) {
-    		e.printStackTrace() ;
-    	}
+
+    private EditText chattxt;
+    private TextView chattxt2;
+    private Button chatok;
+    
+    public void findviews()
+    {
+        chattxt = (EditText)this.findViewById(R.id.chattxt);
+        chattxt2 = (TextView)this.findViewById(R.id.chattxt2);
+        chatok   = (Button)this.findViewById(R.id.chatOk);
+    }
+    
+    private void setonclick()
+    {
+        chatok.setOnClickListener(new View.OnClickListener() {
+   
+    public void onClick(View v) {
+     try {
+      connecttoserver(chattxt.getText().toString());
+     } catch (UnknownHostException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+     } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+     }
+    }
+   });
+    }
+
+
+    public void connecttoserver(String socketData) throws UnknownHostException, IOException
+{
+    Socket socket=RequestSocket("192.168.1.100",5000);
+   SendMsg(socket,socketData);  
+   String txt = ReceiveMsg(socket);
+   this.chattxt2.setText(txt);    
+}
+
+    
+    private Socket RequestSocket(String host,int port) throws UnknownHostException, IOException
+    {   
+    Socket socket = new Socket(host, port);
+    return socket;
+    }
+    
+    private void SendMsg(Socket socket,String msg) throws IOException
+    {
+    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+   writer.write(msg.replace("\n", " ")+"\n");
+   writer.flush();
+    }
+    
+    private String ReceiveMsg(Socket socket) throws IOException
+    {
+    BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+    
+   String txt=reader.readLine();
+   return txt ;
     }
 }
