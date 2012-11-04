@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/chattxt2"
+        android:layout_width="match_parent"
+        android:layout_height="68px"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.07"
+        android:text="TextView" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/chattxt"
+        android:layout_width="match_parent"
+        android:layout_height="52px"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/widget30"
+        android:text="EditText"
+        android:textSize="18sp" >
+    </EditText>
+
+    <Button
+        android:id="@+id/chatOk"
+        android:layout_width="match_parent"
+        android:layout_height="41px"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/widget29"
+        android:text="Button" >
+    </Button>
+
+</LinearLayout>
