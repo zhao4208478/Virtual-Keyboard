@@ -87,7 +87,7 @@ private String ReceiveMsg(Socket socket) throws IOException
    reader = new BufferedReader(
      new InputStreamReader(socket.getInputStream()));     
     System.out.println("server get input from client socket..");
-    String txt="Sever send:"+reader.readLine();
+    String txt="hehe,welcome:"+reader.readLine();
    
     return txt;
 }
