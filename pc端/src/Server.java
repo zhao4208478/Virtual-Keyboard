@@ -25,12 +25,8 @@ public void run() {
     
      while(true)
      {
-      txt=ReceiveMsg(client);  
-      System.out.println(txt);
+      ReceiveMsg(client);  
       //链接获得客户端发来消息，并将其显示在Server端的屏幕上
-   
-      SendMsg(client,txt);
-      //向客户端返回消息
 
       if(true)break;
       //中断，继续等待链接请求
@@ -48,7 +44,6 @@ public void run() {
 
 private ServerSocket server = null;
 private static final int PORT = 5000;
-private BufferedWriter writer;
 private BufferedReader reader;
 
 private void CreateSocket() throws IOException
@@ -60,7 +55,7 @@ private void CreateSocket() throws IOException
 private Socket ResponseSocket() throws IOException
 {
    Socket client = server.accept(); 
-   System.out.println("client connected..");
+  // System.out.println("client connected..");
   
    return client;
 }
@@ -68,28 +63,20 @@ private Socket ResponseSocket() throws IOException
 private void CloseSocket(Socket socket) throws IOException
 {
    reader.close();
-   writer.close();
    socket.close();
-   System.out.println("client closed..");
+   //System.out.println("client closed..");
 }
 
-private void SendMsg(Socket socket,String Msg) throws IOException 
-{
-   writer = new BufferedWriter(
-      new OutputStreamWriter(socket.getOutputStream()));
-    writer.write(Msg+"\n");
-    writer.flush();
-   
-}
-
-private String ReceiveMsg(Socket socket) throws IOException
+private void ReceiveMsg(Socket socket) throws IOException
 {
    reader = new BufferedReader(
      new InputStreamReader(socket.getInputStream()));     
-    System.out.println("server get input from client socket..");
-    String txt="hehe,welcome:"+reader.readLine();
-   
-    return txt;
+  //  System.out.println("server get input from client socket..");
+    String txt= reader.readLine();
+    if ( txt.length() > 2 ) {
+    	System.out.print("\n");
+	}
+    else System.out.print(txt);
 }
 
 public static void main(final String args[]) throws IOException {
