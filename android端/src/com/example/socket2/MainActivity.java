@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
 
@@ -62,6 +63,11 @@ public class MainActivity extends Activity {
     private Button Y;
     private Button Z;
     private Button kaca;
+    private Button back;
+    private Button shift1;
+    private Button shift2;
+    
+    
     
     public void findviews()
     {
@@ -103,13 +109,16 @@ public class MainActivity extends Activity {
     	Z = (Button)this.findViewById(R.id.Z);
     	kaca = (Button)this.findViewById(R.id.kaca);
     	enter = (Button)this.findViewById(R.id.enter);
+    	back = (Button)this.findViewById(R.id.back);
+    	shift1 = (Button)this.findViewById(R.id.shift1);	
+    	shift2 = (Button)this.findViewById(R.id.shift2);
     }
     
     
     private void setonclick()
     {
     
-    A.setOnClickListener(new View.OnClickListener() {  
+  /*  A.setOnClickListener(new View.OnClickListener() {  
     public void onClick(View v) {
      try {
       connecttoserver("A");
@@ -119,9 +128,38 @@ public class MainActivity extends Activity {
       e.printStackTrace();
      }
     }
-    });
+    });*/
+        A.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("A");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("A");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
         
-    B.setOnClickListener(new View.OnClickListener() {  
+   /* B.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("B");
@@ -131,9 +169,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        B.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("B");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("B");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    C.setOnClickListener(new View.OnClickListener() {  
+   /* C.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("C");
@@ -143,9 +210,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        C.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("C");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("C");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    D.setOnClickListener(new View.OnClickListener() {  
+   /* D.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("D");
@@ -155,9 +251,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        D.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("D");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("D");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    E.setOnClickListener(new View.OnClickListener() {  
+    /*E.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("E");
@@ -167,9 +292,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        E.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("E");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("E");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    F.setOnClickListener(new View.OnClickListener() {  
+    /*F.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("F");
@@ -179,9 +333,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        F.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("F");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("F");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    G.setOnClickListener(new View.OnClickListener() {  
+   /* G.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("G");
@@ -191,9 +374,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        G.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("G");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("G");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    H.setOnClickListener(new View.OnClickListener() {  
+    /*H.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("H");
@@ -203,9 +415,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        H.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("H");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("H");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    I.setOnClickListener(new View.OnClickListener() {  
+    /*I.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("I");
@@ -215,9 +456,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        I.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("I");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("I");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    J.setOnClickListener(new View.OnClickListener() {  
+    /*J.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("J");
@@ -227,9 +497,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        J.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("J");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("J");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    K.setOnClickListener(new View.OnClickListener() {  
+   /* K.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("K");
@@ -239,9 +538,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        K.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("K");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("K");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    L.setOnClickListener(new View.OnClickListener() {  
+   /* L.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("L");
@@ -251,9 +579,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        L.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("L");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("L");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    M.setOnClickListener(new View.OnClickListener() {  
+    /*M.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("M");
@@ -263,9 +620,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        M.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("M");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("M");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    N.setOnClickListener(new View.OnClickListener() {  
+   /* N.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("N");
@@ -275,9 +661,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        N.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("N");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("N");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    O.setOnClickListener(new View.OnClickListener() {  
+    /*O.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("O");
@@ -287,9 +702,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        O.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("O");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("O");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    P.setOnClickListener(new View.OnClickListener() {  
+    /*P.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("P");
@@ -299,9 +743,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        P.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("P");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("P");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    Q.setOnClickListener(new View.OnClickListener() {  
+    /*Q.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("Q");
@@ -311,9 +784,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        Q.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("Q");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("Q");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    r.setOnClickListener(new View.OnClickListener() {  
+    /*r.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("R");
@@ -323,9 +825,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        r.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("r");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("r");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    S.setOnClickListener(new View.OnClickListener() {  
+    /*S.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("S");
@@ -335,9 +866,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        S.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("S");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("S");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    T.setOnClickListener(new View.OnClickListener() {  
+    /*T.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("T");
@@ -347,9 +907,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        T.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("T");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("T");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    U.setOnClickListener(new View.OnClickListener() {  
+    /*U.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("U");
@@ -359,9 +948,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        U.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("U");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("U");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    V.setOnClickListener(new View.OnClickListener() {  
+    /*V.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("V");
@@ -371,9 +989,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        V.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("V");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("V");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    W.setOnClickListener(new View.OnClickListener() {  
+   /* W.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("W");
@@ -383,9 +1030,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        W.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("W");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("W");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    X.setOnClickListener(new View.OnClickListener() {  
+    /*X.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("X");
@@ -395,9 +1071,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        X.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("X");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("X");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    Y.setOnClickListener(new View.OnClickListener() {  
+    /*Y.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("Y");
@@ -407,9 +1112,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        Y.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("Y");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("Y");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    Z.setOnClickListener(new View.OnClickListener() {  
+   /* Z.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("Z");
@@ -419,9 +1153,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+        Z.setOnTouchListener(new View.OnTouchListener() {
+        	public boolean onTouch(View v, MotionEvent event) 
+        	{ switch (event.getAction()) 
+        		{ 
+        	    case MotionEvent.ACTION_DOWN: 
+        	    {
+        	         try {
+        	          connecttoserver("Z");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        	    case MotionEvent.ACTION_UP: 
+        	    {
+        	         try {
+        	          connecttoserver("Z");
+        	         } catch (UnknownHostException e) {
+        	          e.printStackTrace();
+        	         } catch (IOException e) {
+        	          e.printStackTrace();
+        	         }
+        	         break;
+        	    }
+        		} return true; 
+        	} 
+        	});
     
-    kaca.setOnClickListener(new View.OnClickListener() {  
+   /* kaca.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver(" ");
@@ -432,8 +1195,38 @@ public class MainActivity extends Activity {
          }
         }
         });
+    */
+    kaca.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver(" ");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: //Ì§Æð break; 
+    	    {
+    	         try {
+    	          connecttoserver(" ");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    enter.setOnClickListener(new View.OnClickListener() {  
+    /*enter.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("enter");
@@ -443,9 +1236,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });
+        });*/
+    enter.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("enter");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("enter");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    one.setOnClickListener(new View.OnClickListener() {  
+  /*  one.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("1");
@@ -455,9 +1277,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });*/
+    one.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("1");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("1");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    two.setOnClickListener(new View.OnClickListener() {  
+   /* two.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("2");
@@ -467,9 +1318,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });  */
+    two.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("2");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("2");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    three.setOnClickListener(new View.OnClickListener() {  
+   /* three.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("3");
@@ -479,9 +1359,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });   */
+    three.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("3");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("3");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    four.setOnClickListener(new View.OnClickListener() {  
+    /*four.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("4");
@@ -491,9 +1400,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });    */
+    four.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("4");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("4");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    five.setOnClickListener(new View.OnClickListener() {  
+    /*five.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("5");
@@ -503,9 +1441,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });*/
+    five.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("5");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("5");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    six.setOnClickListener(new View.OnClickListener() {  
+    /*six.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("6");
@@ -515,9 +1482,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });  */
+    six.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("6");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("6");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    seven.setOnClickListener(new View.OnClickListener() {  
+    /*seven.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("7");
@@ -527,9 +1523,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });    */
+    seven.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("7");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("7");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    eight.setOnClickListener(new View.OnClickListener() {  
+    /*eight.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("8");
@@ -539,9 +1564,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        }); */
+    eight.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("8");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("8");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    nine.setOnClickListener(new View.OnClickListener() {  
+   /* nine.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("9");
@@ -551,9 +1605,38 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });  */
+    nine.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("9");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("9");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
-    zero.setOnClickListener(new View.OnClickListener() {  
+    /*zero.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
           connecttoserver("0");
@@ -563,14 +1646,165 @@ public class MainActivity extends Activity {
           e.printStackTrace();
          }
         }
-        });    
+        });*/
+    zero.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("0");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("0");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
+    
+    /*back.setOnClickListener(new View.OnClickListener() {  
+        public void onClick(View v) {
+         try {
+          connecttoserver("back");
+         } catch (UnknownHostException e) {
+          e.printStackTrace();
+         } catch (IOException e) {
+          e.printStackTrace();
+         }
+        }
+        }); */
+    back.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("back");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("back");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
+    
+    /*shift1.setOnClickListener(new View.OnClickListener() {  
+        public void onClick(View v) {
+         try {
+          connecttoserver("shift");
+         } catch (UnknownHostException e) {
+          e.printStackTrace();
+         } catch (IOException e) {
+          e.printStackTrace();
+         }
+        }
+        });    */
+    shift1.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("shift");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("shift");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
+   /* shift2.setOnClickListener(new View.OnClickListener() {  
+        public void onClick(View v) {
+         try {
+          connecttoserver("shift");
+         } catch (UnknownHostException e) {
+          e.printStackTrace();
+         } catch (IOException e) {
+          e.printStackTrace();
+         }
+        }
+        });*/
+    shift2.setOnTouchListener(new View.OnTouchListener() {
+    	public boolean onTouch(View v, MotionEvent event) 
+    	{ switch (event.getAction()) 
+    		{ 
+    	    case MotionEvent.ACTION_DOWN: 
+    	    {
+    	         try {
+    	          connecttoserver("shift");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    	    case MotionEvent.ACTION_UP: 
+    	    {
+    	         try {
+    	          connecttoserver("shift");
+    	         } catch (UnknownHostException e) {
+    	          e.printStackTrace();
+    	         } catch (IOException e) {
+    	          e.printStackTrace();
+    	         }
+    	         break;
+    	    }
+    		} return true; 
+    	} 
+    	});
     
     }
 
 
     public void connecttoserver(String string) throws UnknownHostException, IOException
 {
-    Socket socket=RequestSocket("192.168.1.100",5000);
+    Socket socket=RequestSocket("192.168.1.200",5000);
    SendMsg(socket,string);     
 }
 
