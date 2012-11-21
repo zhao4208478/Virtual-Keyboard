@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.*;
@@ -22,7 +23,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         findviews();
-        setonclick();
+        setonclick();  
     }
 
     private Button enter;
@@ -115,7 +116,7 @@ public class MainActivity extends Activity {
     }
     
     
-    private void setonclick()
+    public void setonclick()
     {
     
   /*  A.setOnClickListener(new View.OnClickListener() {  
@@ -142,7 +143,6 @@ public class MainActivity extends Activity {
         	         } catch (IOException e) {
         	          e.printStackTrace();
         	         }
-        	         break;
         	    }
         	    case MotionEvent.ACTION_UP: 
         	    {
@@ -155,10 +155,16 @@ public class MainActivity extends Activity {
         	         }
         	         break;
         	    }
-        		} return true; 
-        	} 
+        		}
+        	return true; 
+        	}
+        	  
+    	         
+        	
+        	
+        	
+        	
         	});
-        
    /* B.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
@@ -199,7 +205,6 @@ public class MainActivity extends Activity {
         		} return true; 
         	} 
         	});
-    
    /* C.setOnClickListener(new View.OnClickListener() {  
         public void onClick(View v) {
          try {
@@ -833,7 +838,7 @@ public class MainActivity extends Activity {
         	    case MotionEvent.ACTION_DOWN: 
         	    {
         	         try {
-        	          connecttoserver("r");
+        	          connecttoserver("R");
         	         } catch (UnknownHostException e) {
         	          e.printStackTrace();
         	         } catch (IOException e) {
@@ -844,7 +849,7 @@ public class MainActivity extends Activity {
         	    case MotionEvent.ACTION_UP: 
         	    {
         	         try {
-        	          connecttoserver("r");
+        	          connecttoserver("R");
         	         } catch (UnknownHostException e) {
         	          e.printStackTrace();
         	         } catch (IOException e) {
@@ -1801,7 +1806,7 @@ public class MainActivity extends Activity {
     
     }
 
-
+    
     public void connecttoserver(String string) throws UnknownHostException, IOException
 {
     Socket socket=RequestSocket("192.168.1.200",5000);
