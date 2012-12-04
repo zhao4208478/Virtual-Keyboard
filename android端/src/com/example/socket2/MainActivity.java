@@ -1,5 +1,5 @@
 package com.example.socket2;
-
+ 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -8,232 +8,118 @@ import java.net.UnknownHostException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
-
-import android.R.integer;
 import android.app.Activity;
+import android.content.res.Configuration;
+import android.graphics.Matrix;
+import android.graphics.PointF;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnTouchListener;
+import android.view.WindowManager;
 import android.widget.*;
 
 
 public class MainActivity extends Activity {
     /** Called when the activity is first created. */
-    @Override
+	
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findviews();
-        setonclick();  
-    }
-    private Button one;
-    private Button two;
-    private Button three;
-    private Button four;
-    private Button five;
-    private Button six;
-    private Button seven;
-    private Button eight;
-    private Button nine;
-    private Button zero;
-    private Button A;
-    private Button B;
-    private Button C;
-    private Button D;
-    private Button E;
-    private Button F;
-    private Button G;
-    private Button H;
-    private Button I;
-    private Button J;
-    private Button K;
-    private Button L;
-    private Button M;
-    private Button N;
-    private Button O;
-    private Button P;
-    private Button Q;
-    private Button r;
-    private Button S;
-    private Button T;
-    private Button U;
-    private Button V;
-    private Button W;
-    private Button X;
-    private Button Y;
-    private Button Z;
-    private Button kaca;
-    private Button back;
-    private Button shift1;
-    private Button shift2;
-    private Button enter;
+    }   
     
     
-    public void findviews()
-    {
-    	one = (Button)this.findViewById(R.id.one);
-    	two = (Button)this.findViewById(R.id.two);
-    	three = (Button)this.findViewById(R.id.three);
-    	four = (Button)this.findViewById(R.id.four);
-    	five = (Button)this.findViewById(R.id.five);
-    	six = (Button)this.findViewById(R.id.six);
-    	seven = (Button)this.findViewById(R.id.seven);
-    	eight = (Button)this.findViewById(R.id.eight);
-    	nine = (Button)this.findViewById(R.id.nine);
-    	zero = (Button)this.findViewById(R.id.zero);
-    	A = (Button)this.findViewById(R.id.A);
-    	B = (Button)this.findViewById(R.id.B);
-    	C = (Button)this.findViewById(R.id.C);
-    	D = (Button)this.findViewById(R.id.D);
-    	E = (Button)this.findViewById(R.id.E);
-    	F = (Button)this.findViewById(R.id.F);
-    	G = (Button)this.findViewById(R.id.G);
-    	H = (Button)this.findViewById(R.id.H);
-    	I = (Button)this.findViewById(R.id.I);
-    	J = (Button)this.findViewById(R.id.J);
-    	K = (Button)this.findViewById(R.id.K);
-    	L = (Button)this.findViewById(R.id.L);
-    	M = (Button)this.findViewById(R.id.M);
-    	N = (Button)this.findViewById(R.id.N);
-    	O = (Button)this.findViewById(R.id.O);
-    	P = (Button)this.findViewById(R.id.P);
-    	Q = (Button)this.findViewById(R.id.Q);
-    	r = (Button)this.findViewById(R.id.r);
-    	S = (Button)this.findViewById(R.id.S);
-    	T = (Button)this.findViewById(R.id.T);
-    	U = (Button)this.findViewById(R.id.U);
-    	V = (Button)this.findViewById(R.id.V);
-    	W = (Button)this.findViewById(R.id.W);
-    	X = (Button)this.findViewById(R.id.X);
-    	Y = (Button)this.findViewById(R.id.Y);
-    	Z = (Button)this.findViewById(R.id.Z);
-    	kaca = (Button)this.findViewById(R.id.kaca);
-    	enter = (Button)this.findViewById(R.id.enter);
-    	back = (Button)this.findViewById(R.id.back);
-    	shift1 = (Button)this.findViewById(R.id.shift1);	
-    	shift2 = (Button)this.findViewById(R.id.shift2);
-    }
+    public boolean onTouchEvent(MotionEvent event){ 
+    	int pointerCount = event.getPointerCount(); 
+        int pointerIndex = (event.getAction() & MotionEvent.ACTION_POINTER_ID_MASK) >> MotionEvent.ACTION_POINTER_ID_SHIFT;
+        int pointerId = event.getPointerId(pointerIndex);
+        int action = (event.getAction()&MotionEvent.ACTION_MASK) % 5;//统一单点和多点 
+			switch(action){ 
+	           case MotionEvent.ACTION_DOWN:
+	           {
+	        	   float a1 = event.getX(pointerId);
+        		   float b1 = event.getY(pointerId);
+	        	   send(a1,b1);
+	           }
+		       break; 
+		       case MotionEvent.ACTION_UP:
+		       {
+		    	   float a1 = event.getX(pointerId);
+	        	   float b1 = event.getY(pointerId);
+	        	   send(a1,b1);
+	           }
+		       break; 
+			}
+        return false; 
+	} 
     
-    
-    public void setonclick()
-    {  
-    	
-    int i;
-    Button[] control={kaca,enter,back,shift1,shift2};
-    final String[] massage={" ","enter","back","shift","shift"};
-    for(i=0;i<=4;i++)
-    {
-    	final int k = i;
-    	control[i].setOnTouchListener(new View.OnTouchListener() {
-    	        public boolean onTouch(View v, MotionEvent event) 
-    	        {
-    	        	switch (event.getAction()) 
-    	        	{ 
-    	        	   case MotionEvent.ACTION_DOWN: 
-    	        	   {
-    	        	        try {
-    	        	         connecttoserver(massage[k]);
-    	        	        } catch (UnknownHostException e) {
-    	        	         e.printStackTrace();
-    	        	        } catch (IOException e) {
-    	        	         e.printStackTrace();
-    	        	        }
-    	        	        setonclick();
-    	        	        break;
-    	        	   }
-    	        	   case MotionEvent.ACTION_UP: 
-    	        	   {
-    	        	        try {
-    	        	         connecttoserver(massage[k]);
-    	        	        } catch (UnknownHostException e) {
-    	        	         e.printStackTrace();
-    	        	        } catch (IOException e) {
-    	        	         e.printStackTrace();
-    	        	        }
-    	        	        break;
-    	        	   }
-    	        	} return true; 
-    	        } 
-    	       	});
-    }
-    Button[] number={zero,one,two,three,four,five,six,seven,eight,nine};
-    for(i=0;i<=9;i++)
-    {
-    	final int k = i;
-    	number[i].setOnTouchListener(new View.OnTouchListener() {
-        	public boolean onTouch(View v, MotionEvent event) 
-        	{ switch (event.getAction()) 
-        		{ 
-        	    case MotionEvent.ACTION_DOWN: 
-        	    {
-        	         try {
-        	          connecttoserver(Integer.toString(k));
-        	         } catch (UnknownHostException e) {
-        	          e.printStackTrace();
-        	         } catch (IOException e) {
-        	          e.printStackTrace();
-        	         }
-        	         break;
-        	    }
-        	    case MotionEvent.ACTION_UP: 
-        	    {
-        	         try {
-        	          connecttoserver(Integer.toString(k));
-        	         } catch (UnknownHostException e) {
-        	          e.printStackTrace();
-        	         } catch (IOException e) {
-        	          e.printStackTrace();
-        	         }
-        	         break;
-        	    }
-        		} return true; 
-        	} 
-        	});
-    }
-    Button[] letter={A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,r,S,T,U,V,W,X,Y,Z};
-    for(i=0;i<=25;i++)
-    {
-    	final char k = (char) (i+'A');
-    	letter[i].setOnTouchListener(new View.OnTouchListener() {
-        	public boolean onTouch(View v, MotionEvent event) 
-        	{ switch (event.getAction()) 
-        		{ 
-        	    case MotionEvent.ACTION_DOWN: 
-        	    {
-        	         try {
-        	          connecttoserver(String.valueOf(k));
-        	         } catch (UnknownHostException e) {
-        	          e.printStackTrace();
-        	         } catch (IOException e) {
-        	          e.printStackTrace();
-        	         }
-        	         break;
-        	    }
-        	    case MotionEvent.ACTION_UP: 
-        	    {
-        	         try {
-        	          connecttoserver( String.valueOf(k));
-        	         } catch (UnknownHostException e) {
-        	          e.printStackTrace();
-        	         } catch (IOException e) {
-        	          e.printStackTrace();
-        	         }
-        	         break;
-        	    }
-        		} return true; 
-        	} 
-        	});
-    }
-    }
-
-    
-    public void connecttoserver(String string) throws UnknownHostException, IOException
+   public void send(float x ,float y)
+   {
+	   String[] number={"1","2","3","4","5","6","7","8","9","0","-","back"};
+	   String[] letter1={"Q","W","E","R","T","Y","U","I","O","P","[","]"};
+	   String[] letter2={"A","S","D","F","G","H","J","K","L","enter"};
+	   String[] letter3={"shift","Z","X","C","V","B","N","M","I","O","P","shift"};
+	   if ( ( y > 50 ) && ( y < 100 ) )
+	   { 
+		   try {
+		          connecttoserver(number[ (int) x / 40 ]);
+		         } catch (UnknownHostException e) {
+		          e.printStackTrace();
+		         } catch (IOException e) {
+		          e.printStackTrace();
+		         }
+	   }
+	   else
+	   if ( ( y > 100 ) && ( y < 150 ) )
+	   {
+		   try {
+		          connecttoserver(letter1[ (int) x / 40 ]);
+		         } catch (UnknownHostException e) {
+		          e.printStackTrace();
+		         } catch (IOException e) {
+		          e.printStackTrace();
+		         }
+	   }
+	   else
+	   if ( ( y > 150 ) && ( y < 200 ) )
+	   {
+		   try {
+			   connecttoserver(letter2[ (int) x / 40 ]);
+			   } catch (UnknownHostException e) {
+			   e.printStackTrace();
+			   } catch (IOException e) {
+			   e.printStackTrace();
+			   }
+	   }
+	   else
+	   if ( ( y > 200 ) && ( y < 250 ) )
+	   {
+		   try {
+			   connecttoserver(letter3[ (int) x / 40 ]);
+			   } catch (UnknownHostException e) {
+			   e.printStackTrace();
+			   } catch (IOException e) {
+			   e.printStackTrace();
+			   }
+	   }
+	   else
+	   {
+		   try {
+			   connecttoserver(" ");
+			   } catch (UnknownHostException e) {
+			   e.printStackTrace();
+			   } catch (IOException e) {
+			   e.printStackTrace();
+			   }
+	   }
+   }
+   public void connecttoserver(String string) throws UnknownHostException, IOException
 {
     Socket socket=RequestSocket("192.168.1.200",5000);
    SendMsg(socket,string);     
 }
-
     
     private Socket RequestSocket(String host,int port) throws UnknownHostException, IOException
     {   

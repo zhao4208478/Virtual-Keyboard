@@ -75,6 +75,9 @@ public boolean shift = true;
 public boolean enter = true;
 public boolean kaca = true;
 public boolean back = true;
+public boolean minus = true;
+public boolean open = true;
+public boolean close = true;
 
 private ServerSocket server = null;
 private static final int PORT = 5000;
@@ -107,8 +110,10 @@ private void ReceiveMsg(Socket socket ) throws IOException
   //  System.out.println("server get input from client socket..");
     String txt= reader.readLine();
     char a[] = txt.toCharArray() ;
+    System.out.print(txt.toCharArray());
+    System.out.print("\n");
     if ( txt.length() > 2 ) {
-    	System.out.print("\n");
+    //	System.out.print("\n");
     if ( a[0] == 'e')
     	try {
     		Robot robot = new Robot();
@@ -161,7 +166,7 @@ private void ReceiveMsg(Socket socket ) throws IOException
     }
     else 
     { 	
-    	System.out.print(a[0]);
+   // 	System.out.print(a[0]);
     	if (( a[0] <= '9' ) && ( a[0] >= '0' ))
     	{	try {
         		Robot robot = new Robot();
@@ -208,6 +213,57 @@ private void ReceiveMsg(Socket socket ) throws IOException
     			{
             	robot.keyRelease(KeyEvent.VK_SPACE);
             	kaca = true ;
+    			}
+        		} catch (AWTException e) {
+        		e.printStackTrace();
+        		}
+    	};
+    	if ( a[0] == '-' )
+    	{	try {
+        		Robot robot = new Robot();
+        		if ( minus == true )
+    			{
+            	robot.keyPress(KeyEvent.VK_MINUS);
+            	minus = false ;			
+    			}
+        		else
+    			{
+                robot.keyPress(KeyEvent.VK_MINUS);
+                minus = true ;
+    			}
+        		} catch (AWTException e) {
+        		e.printStackTrace();
+        		}
+    	};
+    	if ( a[0] == '[' )
+    	{	try {
+        		Robot robot = new Robot();
+        		if ( open == true )
+    			{
+            	robot.keyPress(KeyEvent.VK_OPEN_BRACKET);
+            	open = false ;			
+    			}
+        		else
+    			{
+                robot.keyPress(KeyEvent.VK_OPEN_BRACKET);
+                open = true ;
+    			}
+        		} catch (AWTException e) {
+        		e.printStackTrace();
+        		}
+    	};
+    	if ( a[0] == ']' )
+    	{	try {
+        		Robot robot = new Robot();
+        		if ( close == true )
+    			{
+            	robot.keyPress(KeyEvent.VK_CLOSE_BRACKET);
+            	close = false ;			
+    			}
+        		else
+    			{
+                robot.keyPress(KeyEvent.VK_CLOSE_BRACKET);
+                close = true ;
     			}
         		} catch (AWTException e) {
         		e.printStackTrace();
