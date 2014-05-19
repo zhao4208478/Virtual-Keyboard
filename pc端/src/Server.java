@@ -6,7 +6,10 @@ import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.awt.AWTException;
+import java.awt.MouseInfo;
+import java.awt.Point;
 import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 public class Server extends Thread {
@@ -79,6 +82,9 @@ public boolean minus = true;
 public boolean open = true;
 public boolean close = true;
 
+public int xs;
+public int ys;
+
 private ServerSocket server = null;
 private static final int PORT = 5000;
 private BufferedReader reader;
@@ -110,11 +116,57 @@ private void ReceiveMsg(Socket socket ) throws IOException
   //  System.out.println("server get input from client socket..");
     String txt= reader.readLine();
     char a[] = txt.toCharArray() ;
-    System.out.print(txt.toCharArray());
-    System.out.print("\n");
+    System.out.println(txt.toCharArray());
     if ( txt.length() > 2 ) {
     //	System.out.print("\n");
-    if ( a[0] == 'e')
+    	
+    if (( a[1] <= '9' ) && ( a[1] >= '0' )){   //x,y
+    	int i = 1 , x = 0 , y = 0;
+    	while ( a[i] != ',' ) {
+			x = x * 10 + (a[i] - 48);
+			i++;
+		}
+    	i++;
+    	while ( i < txt.length() ) {
+			y = y * 10 + (a[i] - 48);
+			i++;
+		}
+        System.out.println(x);
+        System.out.println(y);
+    	Point mousepoint = MouseInfo.getPointerInfo().getLocation();  
+    	if (a[0]=='a'){
+    		xs = x;
+    		ys = y;
+    	}
+    	else if (a[0]=='z'){
+    		try {
+        		Robot robot = new Robot();
+        		robot.mouseMove( mousepoint.x + ( x - xs ) * 2 , mousepoint.y  + ( y - ys ) * 2 );		
+    			} catch (AWTException e) {
+        		e.printStackTrace();
+        		}
+		}
+    	else {
+    		try {
+        		Robot robot = new Robot();
+        		robot.mouseMove( mousepoint.x + ( x - xs ) * 2 , mousepoint.y  + ( y - ys ) * 2 );		
+    			} catch (AWTException e) {
+        		e.printStackTrace();
+        		}
+    		xs = x;
+    		ys = y;
+		}
+    } else  
+    if ( a[0] == 'c'){
+        try {
+        	Robot robot = new Robot();
+        	robot.mousePress(InputEvent.BUTTON1_MASK);
+        	robot.mouseRelease(InputEvent.BUTTON1_MASK);
+    		} catch (AWTException e) {
+        	e.printStackTrace();
+        	} 
+    } else    	
+    if ( a[0] == 'e'){
     	try {
     		Robot robot = new Robot();
 			if ( enter == true )
@@ -129,8 +181,9 @@ private void ReceiveMsg(Socket socket ) throws IOException
 			}
 			} catch (AWTException e) {
     		e.printStackTrace();
-    		}
-    if ( a[0] == 'b')
+    		} 
+    } else
+    if ( a[0] == 'b'){
     	try {
     		Robot robot = new Robot();
     		if ( back == true )
@@ -145,8 +198,9 @@ private void ReceiveMsg(Socket socket ) throws IOException
 			}
     		} catch (AWTException e) {
     		e.printStackTrace();
-    		}	
-            if ( a[0] == 's')
+    		} 
+    } else
+    if ( a[0] == 's'){
     	    try {
     		Robot robot = new Robot();
     		if ( shift == true )
@@ -164,11 +218,12 @@ private void ReceiveMsg(Socket socket ) throws IOException
     		e.printStackTrace();
     		}	
     }
+    }
     else 
     { 	
    // 	System.out.print(a[0]);
-    	if (( a[0] <= '9' ) && ( a[0] >= '0' ))
-    	{	try {
+    	if (( a[0] <= '9' ) && ( a[0] >= '0' )){
+    		try {
         		Robot robot = new Robot();
         		if ( n[((int) a[0] - '0' )] == true )
     			{
@@ -183,9 +238,9 @@ private void ReceiveMsg(Socket socket ) throws IOException
         		} catch (AWTException e) {
         		e.printStackTrace();
         		}
-        };
-    	if (( a[0] <= 'Z' ) && ( a[0] >= 'A' ))
-        {   try {
+        } else
+    	if (( a[0] <= 'Z' ) && ( a[0] >= 'A' )){   
+    		try {
         		Robot robot = new Robot();
         		if ( l[((int) a[0] - 'A' )] == true )
     			{
@@ -200,9 +255,9 @@ private void ReceiveMsg(Socket socket ) throws IOException
         		} catch (AWTException e) {
         		e.printStackTrace();
         		}
-        };
-    	if ( a[0] == ' ' )
-    	{	try {
+        } else
+    	if ( a[0] == ' ' ){	
+    		try {
         		Robot robot = new Robot();
         		if ( kaca == true )
     			{
@@ -217,9 +272,9 @@ private void ReceiveMsg(Socket socket ) throws IOException
         		} catch (AWTException e) {
         		e.printStackTrace();
         		}
-    	};
-    	if ( a[0] == '-' )
-    	{	try {
+    	} else
+    	if ( a[0] == '-' ){	
+    		try {
         		Robot robot = new Robot();
         		if ( minus == true )
     			{
@@ -234,9 +289,9 @@ private void ReceiveMsg(Socket socket ) throws IOException
         		} catch (AWTException e) {
         		e.printStackTrace();
         		}
-    	};
-    	if ( a[0] == '[' )
-    	{	try {
+    	} else
+    	if ( a[0] == '[' ){	
+    		try {
         		Robot robot = new Robot();
         		if ( open == true )
     			{
@@ -251,9 +306,9 @@ private void ReceiveMsg(Socket socket ) throws IOException
         		} catch (AWTException e) {
         		e.printStackTrace();
         		}
-    	};
-    	if ( a[0] == ']' )
-    	{	try {
+    	} else
+    	if ( a[0] == ']' ){	
+    		try {
         		Robot robot = new Robot();
         		if ( close == true )
     			{

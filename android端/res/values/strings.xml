@@ -1,7 +1,7 @@
 <resources>
 
-    <string name="app_name">Virtual Keyboard</string>
+    <string name="app_name">Mouse-Keyboard</string>
     <string name="menu_settings">Settings</string>
-    <string name="title_activity_main">Virtual Keyboard</string>
+    <string name="title_activity_main">Mouse-Keyboard</string>
 
 </resources>

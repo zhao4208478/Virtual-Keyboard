@@ -4,18 +4,26 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.net.UnknownHostException;
-
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+
+import com.example.socket2.R.id;
+
+import android.R.string;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.*;
@@ -23,11 +31,51 @@ import android.widget.*;
 
 public class MainActivity extends Activity {
     /** Called when the activity is first created. */
-	
-
+	private String tag = MainActivity.this.getClass().getSimpleName();
+	public String IP;
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    /*	final EditText editText = new EditText(MainActivity.this);  
+        new AlertDialog.Builder(this).setTitle("请输入PC端IP地址").setIcon(
+        	     android.R.drawable.ic_dialog_info).setView(editText).setPositiveButton("确定",  new DialogInterface.OnClickListener() {
+
+      	    	   public void onClick(DialogInterface dialog, int which) {
+      	    	        IP = editText.getText().toString();
+      	    	        Log.i(tag, "show:"+IP);
+      	    	        Button button=(Button)findViewById(id.Button);
+      	                button.setOnClickListener(new OnClickListener() {
+      					
+      					@Override
+      					public void onClick(View v) {
+      						// TODO Auto-generated method stub
+      						Intent change = new Intent();
+      						change.setClass(MainActivity.this, mouse.class);
+      						startActivity(change);
+      						System.exit(0);  
+      					}
+      				    });
+      	    	        }
+      	    	  })
+        	     .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+
+        	    	   public void onClick(DialogInterface dialog, int which) {
+        	    	    dialog.dismiss();
+        	    	    MainActivity.this.finish();
+        	    	   }
+        	    	  }).show();*/
+        Button button=(Button)findViewById(id.Button);
+          button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent change = new Intent();
+				change.setClass(MainActivity.this, mouse.class);
+				startActivity(change);
+				System.exit(0);  
+			}
+		    });
     }   
     
     
@@ -59,7 +107,7 @@ public class MainActivity extends Activity {
    {
 	   String[] number={"1","2","3","4","5","6","7","8","9","0","-","back"};
 	   String[] letter1={"Q","W","E","R","T","Y","U","I","O","P","[","]"};
-	   String[] letter2={"A","S","D","F","G","H","J","K","L","enter"};
+	   String[] letter2={"A","S","D","F","G","H","J","K","L","enter","enter","enter"};
 	   String[] letter3={"shift","Z","X","C","V","B","N","M","I","O","P","shift"};
 	   if ( ( y > 50 ) && ( y < 100 ) )
 	   { 
@@ -117,8 +165,9 @@ public class MainActivity extends Activity {
    }
    public void connecttoserver(String string) throws UnknownHostException, IOException
 {
-    Socket socket=RequestSocket("192.168.1.200",5000);
-   SendMsg(socket,string);     
+	Log.i(tag, "show2:"+IP);
+    Socket socket=RequestSocket("192.168.1.157",5000);
+    SendMsg(socket,string);     
 }
     
     private Socket RequestSocket(String host,int port) throws UnknownHostException, IOException
